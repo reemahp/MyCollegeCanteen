@@ -1,0 +1,272 @@
+* {
+  margin: 0;
+  padding: 0%;
+}
+
+.bg-div {
+  width: 100%;
+  overflow: hidden;
+  line-height: 80px;
+  height: 80px;
+  background-color: hsl(180, 6%, 3%);
+
+}
+
+li {
+  float: left;
+  width: 120 px;
+  height: 80 px;
+  line-height: 80 px;
+  text-align: center;
+  font-size: larger;
+  list-style: none;
+}
+
+li a {
+  display: block;
+  color: rgb(255, 255, 255);
+  text-align: center;
+  padding: 0px 14px;
+  text-decoration: none;
+  font-family: sans-serif;
+}
+
+
+li a:hover {
+  background-color: #78847e;
+}
+
+.logo img {
+  float: left;
+  width: 100px;
+}
+
+section{
+  backdrop-filter:blur(16px);
+  display: flex;
+}
+
+.box h1 {
+  text-align: center;
+  color: rgb(255, 255, 255);
+  font-size: 3em;
+  font-family: sans-serif;
+
+}
+
+.active {
+  background-color: rgb(68, 70, 69);
+}
+
+
+
+.section-intro {
+  background-image: url(homepic.jpg);
+  background-attachment: fixed;
+  background-position: center;
+  background-size: auto;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 550px;
+  backdrop-filter:blur(16px);
+}
+
+.section-intro h1 {
+  text-align: center;
+  color: rgb(255, 255, 255);
+  font-size: 4em;
+  font-weight: 700;
+  font-family: sans-serif;
+}
+
+.section-intro header {
+  display: flex;
+  flex: 4;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.about-section {
+  display: flex;
+  align-items: center;
+  background-color: #f3f3f3c0;
+  padding: 50px 30px;
+}
+
+
+
+.about-section p,
+.about-section h3 {
+  text-align: center;
+  width: 60%;
+  margin: auto;
+  font-family: sans-serif;
+  font-size: 1.8em;
+
+}
+
+
+.row-flex {
+  display: flex;
+  flex-direction: row;
+}
+
+.flex-column-form {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  margin: 30px 20px;
+}
+
+.opening-time,
+.contact-address {
+  flex: 1;
+  margin: 30px 20px;
+  font-size: 1.2em;
+  font-family: sans-serif;
+}
+
+.form-group p {
+  font-size: 1.2em;
+  font-family: sans-serif;
+}
+
+.opening-time p span,
+.contact-address p span {
+  display: block;
+}
+
+
+.row {
+  display: flex;
+ 
+  padding: 8px;
+}
+
+.column {
+  flex: 33.33%;
+  padding: 5px;
+}
+
+.column img {
+  height: 100%;
+}
+
+
+
+@media screen and (max-width: 576px) {
+  .section-intro {
+    height: 300px;
+  }
+
+  .about-section {
+    padding: 30px;
+  }
+
+  .section-intro h1 {
+    font-size: 2em;
+    font-family: sans-serif;
+    color: white;
+  }
+
+  .about-section p,
+  .about-section h3 {
+    font-size: 15px;
+    font-family: sans-serif;
+  }
+
+
+
+  .row-flex {
+
+    flex-direction: column;
+  }
+
+  .row-flex h3 {
+    font-size: 25px;
+    font-family: sans-serif;
+    text-align: center;
+    color: white;
+  }
+
+  .form-group p {
+    font-size: 15px;
+    font-family: sans-serif;
+    color: white;
+  }
+
+  .opening-time p span,
+  .contact-address p span {
+    font-size: 15px;
+    text-align: center;
+    font-family: sans-serif;
+    color: white;
+  }
+
+}
+
+.items {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  padding: 30px 50px;
+  grid-column-gap: 40px;
+  grid-row-gap: 30px;
+  margin-left: auto;
+  margin-right: auto;
+  align-items: end;
+}
+
+.item img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.item img:hover {
+  transform: scale(1.04);
+}
+
+.item h3 {
+  padding: 5px;
+  text-align: center;
+  font-family: sans-serif bold;
+  color: rgb(255, 255, 255);
+}
+
+.item button {
+  padding: 5px 30px;
+  border: none;
+  background-color: rgb(219, 80, 20);
+  color: white;
+  cursor: pointer;
+  font-family: sans-serif bold;
+  font-size: 15px;
+ display: block;
+  width: 100%;
+  
+}
+
+.item button:hover {
+  transform: scale(1.04);
+}
+
+@media screen and (max-width: 1000px) {
+  .items {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .items {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
