@@ -10,6 +10,7 @@ if (!isset($_SESSION['user_id'])) {
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 <style>
 body {
   font-family: Arial, Helvetica, sans-serif;
@@ -22,8 +23,10 @@ body {
   font-size: 16px;
   color: white;
   text-align: center;
-  padding: 14x 16px;
   text-decoration: none;
+  display: block;
+  padding: 0px 14px;
+  font-family: sans-serif;
 }
 
 .dropdown {
@@ -98,12 +101,13 @@ table {
 
 
 <div class="navbar">
-  <a href="logout.php">Logout
+  <a href="logout.php">LOGOUT
+  </a>
+  <a href="datainfo.php">DATA INFO
   </a>
  
- 
   <div class="dropdown">
-    <button class="dropbtn">Dropdown 
+    <button class="dropbtn"> MENU 
       <i class="fa fa-caret-down"></i>
     </button>
     <div class="dropdown-content">
@@ -240,41 +244,7 @@ table {
   </section>
 
 
-  <BR><BR><BR>
-<h3> LIST OF VENDORS</h3>
-<BR><BR><BR>
-	<table>
-		<tr>
-			<th>ID</th>
-			<th>Name</th>
-			<th>Phone Number</th>
-			<th>City</th>
-		</tr>
-		<?php
-			// Connect to database
-      $host = 'localhost';
-    $username = 'root';
-    $password = '';
-    $database = 'itemdb';
-    $conn = mysqli_connect($host, $username, $password, $database);
-if (!$conn) {
-    die("Connection failed: " . mysqli_connect_error());
-}
-    
-			// Retrieve data
-			$result = mysqli_query($conn, "SELECT * FROM vendors");
-
-			// Output data in table format
-			while ($row = mysqli_fetch_assoc($result)) {
-				echo "<tr>";
-				echo "<td>" . $row['vendor_id'] . "</td>";
-				echo "<td>" . $row['name'] . "</td>";
-				echo "<td>" . $row['Phone_num'] . "</td>";
-				echo "<td>" . $row['city'] . "</td>";
-				echo "</tr>";
-			}
-		?>
-	</table>
+  
   <script>
    let sidebar = document.querySelector(".sidebar");
 let sidebarBtn = document.querySelector(".sidebarBtn");
