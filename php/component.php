@@ -16,7 +16,7 @@ function component($itemname, $itemprice, $itemimg, $itemid){
     echo $element;
 }
 
-    function cartElement($itemimg, $itemname, $itemprice, $itemid){
+    function cartElement($itemimg, $itemname, $itemprice, $itemid , $itemQuantity){
         $element = "
             <form action=\"cart.php?action=remove&id=$itemid\" method=\"post\" class=\"cart-items\">
                 <div class=\"row\">
@@ -32,6 +32,7 @@ function component($itemname, $itemprice, $itemimg, $itemid){
                     <div class=\"col-md-3 py-5\">
                         <div>
                             <button type=\"submit\" onclick=\"decreaseValue()\" class=\"btn bg-light border rounded-circle\" name=\"minus\"><i class=\"fas fa-minus\"></i></button>
+                            <input type=\"text\" value=\"$itemQuantity\" class=\"form-control w-25 d-inline\">
                             <button type=\"submit\" onclick=\"increaseValue()\" class=\"btn bg-light border rounded-circle\" name=\"plus\" ><i class=\"fas fa-plus\"></i></button>
                         </div>
                     </div>

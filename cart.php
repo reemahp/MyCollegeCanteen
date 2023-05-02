@@ -179,7 +179,7 @@ function decreaseValue() {
                       $item_result = mysqli_query($conn, $item_query);
                       $item = mysqli_fetch_assoc($item_result);
                      
-                      echo cartElement($item['item_img'],$item['item_name'], $item['item_price'],  $item['id']);
+                      echo cartElement($item['item_img'],$item['item_name'], $item['item_price']*$row['quantity'],  $item['id'] , $row['quantity']);
                       $total = $total + (int)$item['item_price'] * $row['quantity'];
                       //echo $total;
                   }
@@ -238,8 +238,8 @@ if (isset($_SESSION['cart']) && !empty($_SESSION['cart'])) {
                             <input name="total" value="<?php echo $total;?>" hidden>
                           <!-- <button type="submit" style="padding: 5px 30px; border: none;cursor: pointer;  width: 100%;" name = "pay">
                           <a  href="payment.php">
-                              Payment</a></button> -->
-                              <input type="submit" name="pay" value="pay"/>
+                              Payment</a></button> --><input class="btn btn-primary btn-block" type="submit" name="pay" value="pay"/>
+                              
                         </form>
                           
                     </div>
