@@ -8,6 +8,29 @@ include("login/connection.php");
 include("login/functions.php");
 require_once ("php/CreateDb.php");
 require_once ("php/component.php");
+$user_id = $_SESSION['user_id'];
+
+if(isset($_POST['submit'])) {
+    $review = $_POST['review'];
+    
+    // Connect to MySQL database
+    $host = 'localhost';
+    $username = 'root';
+    $password = '';
+    $database = 'itemdb';
+    $conn = mysqli_connect($host, $username, $password, $database);
+   if((!empty($review) && !empty($user_id)  ))
+   {
+
+    // Insert item information into menu table
+    $sql = "INSERT INTO feedback (userid , review) VALUES ('$user_id', '$review')";
+    mysqli_query($conn, $sql);
+   
+    
+   }
+}
+
+
 
 ?>
 <html lang="en">
@@ -18,19 +41,24 @@ require_once ("php/component.php");
             initial-scale=1, shrink-to-fit=no">
 
     <link rel="stylesheet" href="mystyle.css">
-
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <title>
         My College Canteen
     </title>
     <style>
         body {
             width: 100%;
-            background-image: url("./img/background.png");
+            background-image: url("restaurant.webp");
             background-attachment: fixed;
             background-position: center;
             background-repeat: no-repeat;
             background-size: cover;
+            
+        }
+        .container {
             backdrop-filter:blur(16px);
+            display: flex;
+            color : white;
         }
     </style>
 </head>
@@ -94,16 +122,17 @@ require_once ("php/component.php");
 <br><br>
     <div class="container">
         <div class="row-flex">
-            <div class="flex-column-form">
-                <h3>
+        <div class="flex-column-form">
+                <h4>
                     Hello ! Enter your reviews here .
-                </h3>
-                <textarea ></textarea>
+                </h4>
+                <form method="POST" action="CollegeCanteen.php" enctype="multipart/form-data">
+                
+                <input type="text" id="name" name="review"><br>
                        <br><br>
+                       
+    <input class="btn btn-primary" type="submit" value="Submit" name="submit">
                     
-                    <button type="submit" class="btn btn-primary">
-                        Submit
-                    </button>
                 </form>
             </div>
             <div class="opening-time">

@@ -102,18 +102,19 @@ if (isset($_POST['minus'])){
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.css" />
     <!-- Bootstrap CDN -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+   
 
     <link rel="stylesheet" href="mystyle.css">
     <style>
       
         body {
             width: 100%;
-            background-image: url("./img/background.png");
+            background-image: url("restaurant.webp");
             background-attachment: fixed;
             background-position: center;
             background-repeat: no-repeat;
             background-size: cover;
-            backdrop-filter:blur(16px);
+            
         }
         
 
@@ -247,9 +248,13 @@ if (isset($_SESSION['cart']) && !empty($_SESSION['cart'])) {
             </div>
 
         </div>
+        <form action="/addtocart/ratings.php" method = "POST">
+            <br><br><br>
+            <input class="btn btn-primary btn-block" type="submit" name="rate" value="rate your previous order"/>
+                              
+        </form>
+        
     </div>
 </div>
-
-
 </body>
 </html>

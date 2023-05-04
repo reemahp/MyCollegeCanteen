@@ -4,6 +4,17 @@ if (!isset($_SESSION['user_id'])) {
     header('location: login.php');
     exit();
 }
+
+	// Connect to database
+  $host = 'localhost';
+  $username = 'root';
+  $password = '';
+  $database = 'itemdb';
+  $conn = mysqli_connect($host, $username, $password, $database);
+if (!$conn) {
+  die("Connection failed: " . mysqli_connect_error());
+}
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -132,7 +143,7 @@ table {
         <div class="box">
           <div class="right-side">
             <div class="box-topic">Total Order</div>
-            <div class="number">###</div>
+            <div class="number">5</div>
             <div class="indicator">
               <i class='bx bx-up-arrow-alt'></i>
               <span class="text">Up from yesterday</span>
@@ -143,7 +154,7 @@ table {
         <div class="box">
           <div class="right-side">
             <div class="box-topic">Total Sales</div>
-            <div class="number">###</div>
+            <div class="number">450</div>
             <div class="indicator">
               <i class='bx bx-up-arrow-alt'></i>
               <span class="text">Up from yesterday</span>
@@ -154,7 +165,7 @@ table {
         <div class="box">
           <div class="right-side">
             <div class="box-topic">Total Profit</div>
-            <div class="number">###</div>
+            <div class="number">180</div>
             <div class="indicator">
               <i class='bx bx-up-arrow-alt'></i>
               <span class="text">Up from yesterday</span>
@@ -168,34 +179,34 @@ table {
       <div class="sales-boxes">
         <br><br>
         <div class="recent-sales box">
-          
-          <div class="sales-details">
-            <ul class="details">
-              <li class="topic">Date</li>
-              <li><a href="#">02 April 2023</a></li>
-              <li><a href="#">02 April 2023</a></li>
-              <li><a href="#">02 April 2023</a></li>
-              
-            </ul>
-            <ul class="details">
-            <li class="topic">Customer</li>
-            <li><a href="#">user 1</a></li>
-            <li><a href="#">user 2</a></li>
-            <li><a href="#">user 3</a></li>
-           
-</ul>
-          <ul class="details">
-            <li class="topic">Total</li>
-            <li><a href="#">##rs</a></li>
-            <li><a href="#">##rs</a></li>
-            <li><a href="#">##rs</a></li>
-           
-             
-          </ul>
-          </div>
-          <div class="button">
-            <a href="#">See All</a>
-          </div>
+       
+	<table>
+		<tr>
+			<th>USER ID</th>
+			<th>PAYMENT</th>
+			<th>TIME</th>
+      
+		</tr>
+		<?php
+		
+    
+			// Retrieve data
+			$result = mysqli_query($conn, "SELECT * FROM payment");
+
+			// Output data in table format
+			while ($row = mysqli_fetch_assoc($result)) {
+        
+				echo "<tr>";
+				echo "<td>" . $row['user_id'] . "</td>";
+				echo "<td>" . $row['total'] . "</td>";
+				echo "<td>" . $row['date'] . "</td>";
+
+				echo "</tr>";
+        }
+			
+		?>
+	</table>
+
         </div>
 
         <div class="top-sales box">

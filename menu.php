@@ -36,7 +36,7 @@ if (isset($_POST['add'])){
             if ($result->num_rows > 0) {
     // Item already exists in cart
                 echo "<div class=\"alert alert-danger\">
-                <strong>Danger!</strong> This item is already present in the cart.
+                <strong>Alert!</strong> This item is already present in the cart.
                 </div>";
 
 } else {
@@ -63,17 +63,18 @@ if (isset($_POST['add'])){
     <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <style>
         body {
             width: 100%;
-            background-image: url("./img/background.png");
+            background-image: url("restaurant.webp");
             background-attachment: fixed;
             background-position: center;
             background-repeat: no-repeat;
             background-size: cover;
-            backdrop-filter:blur(16px);
+           
         }
 
        

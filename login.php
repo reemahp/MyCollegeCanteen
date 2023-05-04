@@ -37,10 +37,14 @@ session_start();
 								header("Location: adm.php");
 								die;
 						} else {
-								echo "Wrong email or password!";
+							echo "<div class=\"alert alert-danger\">
+							<strong>Alert!</strong> Wrong email id or password.
+							</div>";
 						}
 				} else {
-						echo "Wrong email or password!";
+					echo "<div class=\"alert alert-danger\">
+					<strong>Alert!</strong> Wrong email id or password.
+					</div>";
 				}
 			}
 				if($result && mysqli_num_rows($result) > 0)
@@ -53,10 +57,14 @@ session_start();
 								header("Location: CollegeCanteen.php");
 								die;
 						} else {
-								echo "Wrong email or password!";
+							echo "<div class=\"alert alert-danger\">
+							<strong>Alert!</strong> Wrong email id or password.
+							</div>";
 						}
 				} else {
-						echo "Wrong email or password!";
+					echo "<div class=\"alert alert-danger\">
+					<strong>Alert!</strong> Wrong email id or password.
+					</div>";
 				}
 			
 			}		
@@ -71,21 +79,35 @@ session_start();
 			$name = $_POST['name'];
 			$email_id = $_POST['email_id']; 
 			$password = $_POST['password'];
-		   
+			$query = "select * from users where email_id = '$email_id' limit 1";
+			$result = mysqli_query($con, $query);
 			if(!empty($name) && !empty($password) && !empty($email_id))
 			{
-	   
-				//save to database
-			   
+				if($result && mysqli_num_rows($result) > 0)
+				{
+
+					$user_data = mysqli_fetch_assoc($result);
+						if (isset($user_data['email_id']) && $user_data['email_id'] === $email_id) 
+						{
+							echo "<div class=\"alert alert-danger\">
+							<strong>Alert!</strong> Email id already exists.
+							</div>";
+						}
+			else{
+					
+					
 				   $query = "insert into users (name,email_id,password) values ('$name','$email_id','$password')";
 	   
 				mysqli_query($con, $query);
 	   
 				   header("Location: login.php");
 				die;
-			}else
+			}
+			}}else
 			{
-				echo "Please enter some valid information!";
+				echo "<div class=\"alert alert-danger\">
+							<strong>Alert!</strong> Enter some valid information.
+							</div>";
 			}
 		}
 	}
@@ -108,12 +130,12 @@ session_start();
 	  
 	  body {
             width: 100%;
-            background-image: url("./img/background.png");
+            background-image: url("restaurant.webp");
             background-attachment: fixed;
             background-position: center;
             background-repeat: no-repeat;
             background-size: cover;
-            backdrop-filter:blur(16px);
+           
 						display: flex;
 		  justify-content: center;
 		  align-items: center;
@@ -393,6 +415,11 @@ My College Canteen
 			
 	}
 	</script>
+	
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.css" />
+    <!-- Bootstrap CDN -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+   
 </head>
 <body >
   <div class="bg-div">

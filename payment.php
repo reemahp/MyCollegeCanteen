@@ -67,7 +67,18 @@ function pay($itemname, $itemprice, $itemid) {
   
    
     <link rel="stylesheet" href="payy.css">
-  
+    <style>
+      
+      body {
+          width: 100%;
+          background-image: url("restaurant.webp");
+          background-attachment: fixed;
+          background-position: center;
+          background-repeat: no-repeat;
+          background-size: cover;
+          
+      }
+      </style>
   
 </head>
 
